@@ -36,7 +36,6 @@ const TextHighlighter: React.FC<TextHighlighterProps> = ({
   };
 
   const checkText = (text: string, words: string[]): Highlight[] => {
-    console.log("highlightWords", highlightWords);
     const tokens = text.split(/([\s,.!?]+)/g);
     const alerts: Highlight[] = [];
     let curPos = 0;
@@ -88,7 +87,6 @@ const TextHighlighter: React.FC<TextHighlighterProps> = ({
   };
 
   useEffect(() => {
-    console.log("adding new highlightWords", highlightWords);
     const ref = contentRef.current;
 
     const handleKeyUp = () => {
@@ -103,7 +101,6 @@ const TextHighlighter: React.FC<TextHighlighterProps> = ({
     }
 
     return () => {
-      console.log("cleaning up event listener for keyup");
       if (ref) {
         ref.removeEventListener("keyup", handleKeyUp);
       }
